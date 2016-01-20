@@ -7,9 +7,10 @@ local si = {
     bytes = {"B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"},
 }
 
-local function isNan(_)
-    -- TODO
-    return false
+local function isNan(num)
+    -- http://lua-users.org/wiki/InfAndNanComparisons
+    -- NaN is the only value that doesn't equal itself
+    return num ~= num
 end
 
 local function toFixed(num, digits)
