@@ -31,14 +31,14 @@ local function filesize(size, options)
             o[name] = default
         end
     end
-    setDefault("base", 2)
     setDefault("bits", false)
-    setDefault("exponent", -1)
-    setDefault("output", "string")
-    setDefault("round", 2)
-    setDefault("spacer", " ")
-    setDefault("suffixes", {})
     setDefault("unix", false)
+    setDefault("base", 2)
+    setDefault("round", o.unix and 1 or 2)
+    setDefault("spacer", o.unix and "" or " ")
+    setDefault("suffixes", {})
+    setDefault("output", "string")
+    setDefault("exponent", -1)
     setDefault("skip", false) -- undocumented
 
     assert(not isNan(size), "Invalid arguments")
