@@ -137,7 +137,9 @@ local function filesize(size, options)
             suffix = result[2],
         }
     elseif o.output == "string" then
-        return table.concat(result, o.spacer)
+        local text = table.concat(result, o.spacer)
+        text = text:gsub('%.0 ', ' ') -- '82718061255303.0 YB'
+        return text
     end
 end
 
