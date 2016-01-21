@@ -14,8 +14,9 @@ local function isNan(num)
 end
 
 local function toFixed(num, digits)
+    local is_integer = (num == math.floor(num))
     local fmt
-    if digits > 0 then
+    if digits > 0 and not is_integer then
         fmt = "%." .. digits .. "f"
     else
         fmt = "%d"
