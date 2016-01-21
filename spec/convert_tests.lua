@@ -76,7 +76,7 @@ for _, t in ipairs(tests) do
 
     it(%s, function()
         assert.equal(%s, %s)
-    end)]]):format(t.description, t.expression, t.expected))
+    end)]]):format(t.description, t.expected, t.expression))
 end
 
 print[[
