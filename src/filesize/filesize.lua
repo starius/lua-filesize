@@ -14,18 +14,8 @@ local function isNan(num)
 end
 
 local function roundNumber(num, digits)
-    local fmt
-    if digits > 0 then
-        fmt = "%." .. digits .. "f"
-    else
-        fmt = "%d"
-        num = math.floor(num + 0.5)
-    end
-    num = tonumber(fmt:format(num))
-    if num == math.floor(num) then
-        num = math.floor(num)
-    end
-    return num
+    local fmt = "%." .. digits .. "f"
+    return tonumber(fmt:format(num))
 end
 
 local function filesize(size, options)
@@ -138,7 +128,7 @@ local function filesize(size, options)
         }
     elseif o.output == "string" then
         local text = table.concat(result, o.spacer)
-        text = text:gsub('%.0 ', ' ') -- '82718061255303.0 YB'
+        text = text:gsub('%.0 ', ' ') -- Lua 5.3
         return text
     end
 end
