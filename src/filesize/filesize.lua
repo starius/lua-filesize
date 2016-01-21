@@ -13,16 +13,19 @@ local function isNan(num)
     return num ~= num
 end
 
-local function toFixed(num, digits)
-    local is_integer = (num == math.floor(num))
+local function roundNumber(num, digits)
     local fmt
-    if digits > 0 and not is_integer then
+    if digits > 0 then
         fmt = "%." .. digits .. "f"
     else
         fmt = "%d"
         num = math.floor(num + 0.5)
     end
-    return fmt:format(num)
+    num = tonumber(fmt:format(num))
+    if num == math.floor(num) then
+        num = math.floor(num)
+    end
+    return num
 end
 
 local function filesize(size, options)
@@ -91,7 +94,7 @@ local function filesize(size, options)
         end
 
         result = {
-            tonumber(toFixed(val, o.exponent > 0 and o.round or 0)),
+            roundNumber(val, o.exponent > 0 and o.round or 0),
             (o.base == 10 and o.exponent == 1) and
                 (o.bits and "kb" or "kB") or
                 (si[o.bits and "bits" or "bytes"][o.exponent + 1]),
