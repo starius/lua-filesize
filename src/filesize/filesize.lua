@@ -39,7 +39,6 @@ local function filesize(size, options)
     setDefault("suffixes", {})
     setDefault("output", "string")
     setDefault("exponent", -1)
-    setDefault("skip", false) -- undocumented
 
     assert(not isNan(size), "Invalid arguments")
 
@@ -91,7 +90,7 @@ local function filesize(size, options)
                 (si[o.bits and "bits" or "bytes"][o.exponent + 1]),
         }
 
-        if not o.skip and o.unix then
+        if o.unix then
             result[2] = result[2]:sub(1, 1)
 
             if result[2] == "b" or result[2] == "B" then
