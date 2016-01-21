@@ -14,7 +14,12 @@ local function isNan(num)
 end
 
 local function toFixed(num, digits)
-    local fmt = "%." .. digits .. "f"
+    local fmt
+    if digits > 0 then
+        fmt = "%." .. digits .. "f"
+    else
+        fmt = "%d"
+    end
     return fmt:format(num)
 end
 
