@@ -127,9 +127,10 @@ local function filesize(size, options)
             suffix = result[2],
         }
     elseif o.output == "string" then
-        local text = table.concat(result, o.spacer)
-        text = text:gsub('%.0 ', ' ') -- Lua 5.3
-        return text
+        local value = tostring(result[1])
+        value = value:gsub('%.0$', '')
+        local suffix = result[2]
+        return value .. o.spacer .. suffix
     end
 end
 
