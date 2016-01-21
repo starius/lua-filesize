@@ -19,6 +19,7 @@ local function toFixed(num, digits)
         fmt = "%." .. digits .. "f"
     else
         fmt = "%d"
+        num = math.floor(num + 0.5)
     end
     return fmt:format(num)
 end
