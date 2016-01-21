@@ -21,7 +21,7 @@ describe("examples from main page of http://filesizejs.com/", function()
         assert.equal("265.32 kB", filesize(265318, {base = 10}))
     end)
 
-    it("returns 259 LB for 265318, round=0", function()
+    it("returns 259 KB for 265318, round=0", function()
         assert.equal("259 KB", filesize(265318, {round = 0}))
     end)
 
