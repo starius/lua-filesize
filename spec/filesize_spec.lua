@@ -10,29 +10,29 @@ describe("examples from main page of http://filesizejs.com/", function()
     end)
 
     it("returns 4 kb for 500 bits", function()
-        assert.equal("4 kb", filesize(500, {bits = true}))
+        assert.equal("3.91 Kb", filesize(500, {bits = true}))
     end)
 
-    it("returns 259.1 kB for 265318", function()
-        assert.equal("259.1 kB", filesize(265318))
+    it("returns 259.1 KB for 265318", function()
+        assert.equal("259.1 KB", filesize(265318))
     end)
 
     it("returns 265.32 kB for 265318, base=10", function()
         assert.equal("265.32 kB", filesize(265318, {base = 10}))
     end)
 
-    it("returns 259 kB for 265318, round=0", function()
-        assert.equal("259 kB", filesize(265318, {round = 0}))
+    it("returns 259 LB for 265318, round=0", function()
+        assert.equal("259 KB", filesize(265318, {round = 0}))
     end)
 
-    it("returns {259.1, 'kB'} for 265318, output=array", function()
-        assert.same({259.1, "kB"}, filesize(265318, {output = "array"}))
+    it("returns {259.1, 'KB'} for 265318, output=array", function()
+        assert.same({259.1, "KB"}, filesize(265318, {output = "array"}))
     end)
 
-    it("returns {value=259.1, suffix='kB'} for 265318, output=object",
+    it("returns {value=259.1, suffix='KB'} for 265318, output=object",
     function()
         assert.same(
-            {value=259.1, suffix="kB"},
+            {value=259.1, suffix="KB"},
             filesize(265318, {output = "object"})
         )
     end)
@@ -41,8 +41,8 @@ describe("examples from main page of http://filesizejs.com/", function()
         assert.equal("1 Б", filesize(1, {suffixes = {B = "Б"}}))
     end)
 
-    it("returns 1 kB for 1024", function()
-        assert.equal("1 kB", filesize(1024))
+    it("returns 1 KB for 1024", function()
+        assert.equal("1 KB", filesize(1024))
     end)
 
     it("returns 1024 B for 1024, exponent=0", function()
