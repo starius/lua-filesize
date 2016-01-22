@@ -15,7 +15,7 @@ Inspired by [filesize.js](https://github.com/avoidwork/filesize.js).
 ## Installation
 
 ```
-$ sudo luarocks install filesize
+$ sudo luarocks install lua-filesize
 ```
 
 ## Reference
