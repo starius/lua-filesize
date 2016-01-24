@@ -42,17 +42,17 @@ of type `table`, so you can customize the output.
     Output of function (array, exponent, object, or string),
     default is string
 
-  * round (number)
+  * `round` (number)
     Decimal place, default is 2
 
-  * spacer (string)
+  * `spacer` (string)
     Character between the result and suffix, default is " "
 
-  * suffixes (table)
+  * `suffixes` (table)
     Dictionary of SI suffixes to replace for localization,
     defaults to english if no match is found
 
-  * unix (boolean)
+  * `unix` (boolean)
     Enables unix style human readable output, e.g. `ls -lh`,
     default is false
 
